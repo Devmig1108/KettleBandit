@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kettle Bandit — Small-Batch Kettle Corn</title>
+    <meta name="description" content="Kettle Bandit crafts small-batch kettle corn in bold flavors. Freshly popped, perfectly glazed, impossible to share." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --bg: #f7f8fb;
+            /* overall page background */
+            --panel: #ffffff;
+            /* cards/panels */
+            --ink: #101114;
+            /* primary text */
+            --muted: #60646d;
+            /* secondary text */
+            --line: #e7e9f0;
+            /* subtle borders */
+            --accent: #e21f2f;
+            /* brand red */
+            --accent-2: #ff525c;
+            /* hover/active red */
+            --shadow: 0 10px 28px rgba(16, 17, 20, .08);
+            --shadow-strong: 0 18px 40px rgba(16, 17, 20, .12);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --maxw: 1200px;
+            --gutter: 28px;
+            --speed: .35s;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+        
+        html,
+        body {
+            height: 100%
+        }
+        
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+        
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 var(--gutter)
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            background: var(--accent);
+            color: #fff;
+            border: 1px solid rgba(226, 31, 47, .1);
+            padding: 14px 20px;
+            border-radius: 999px;
+            font-weight: 800;
+            letter-spacing: .2px;
+            box-shadow: 0 6px 18px rgba(226, 31, 47, .25);
+            transition: transform var(--speed), box-shadow var(--speed), background var(--speed);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(226, 31, 47, .35);
+            background: var(--accent-2)
+        }
+        
+        .btn--ghost {
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--ink);
+            box-shadow: 0 6px 16px rgba(16, 17, 20, .06);
+            font-weight: 700;
+        }
+        
+        .btn--ghost:hover {
+            border-color: #d7d9e0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 17, 20, .08)
+        }
+        
+        .eyebrow {
+            display: inline-block;
+            font-size: .78rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #8a8f99;
+            border: 1px solid var(--line);
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #fff, #fafbfe);
+        }
+        /* Header / Nav */
+        
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, .88);
+            backdrop-filter: saturate(140%) blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            font-weight: 900;
+            letter-spacing: .02em;
+        }
+        
+        .brand b {
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            font-size: 1.05rem
+        }
+        
+        .brand-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff, #f0f2f7);
+            border: 1px solid var(--line);
+            box-shadow: inset 0 0 0 1px #fff;
+        }
+        /* Bandit mask mark (light) */
+        
+        .brand-mark::before,
+        .brand-mark::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            margin: auto;
+        }
+        
+        .brand-mark::before {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 40%, #f2f4fa 40%, #dde1ea 41%), radial-gradient(circle at 35% 55%, #101114 11%, transparent 12%), radial-gradient(circle at 65% 55%, #101114 11%, transparent 12%);
+            box-shadow: 0 0 0 2px #101114 inset;
+            top: 6px;
+        }
+        
+        .brand-mark::after {
+            width: 26px;
+            height: 10px;
+            border-radius: 6px;
+            top: 14px;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(226, 31, 47, .35);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 26px;
+            align-items: center
+        }
+        
+        .nav-links a {
+            color: #3b3f46;
+            font-weight: 700
+        }
+        
+        .nav-links a:hover {
+            color: #101114
+        }
+        
+        .nav-cta {
+            display: flex;
+            gap: 10px
+        }
+        
+        .menu-btn {
+            display: none
+        }
+        /* Hero */
+        
+        .hero {
+            position: relative;
+            border-bottom: 1px solid var(--line);
+            background: radial-gradient(1000px 400px at 75% -10%, rgba(226, 31, 47, .10), transparent 60%), radial-gradient(800px 300px at 5% -10%, rgba(226, 31, 47, .06), transparent 60%), linear-gradient(180deg, #ffffff, #f9fafe);
+        }
+        
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 48px;
+            align-items: center;
+            padding: 86px 0
+        }
+        
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            margin: 10px 0 16px;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            line-height: 1.08;
+            letter-spacing: .2px;
+        }
+        
+        .hero p {
+            color: #4b5059;
+            font-size: 1.06rem;
+            max-width: 58ch
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px
+        }
+        
+        .hero-media {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffffff, #f2f4f9);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            min-height: 420px;
+        }
+        
+        .grain {
+            position: absolute;
+            inset: 0;
+            opacity: .6;
+            background: radial-gradient(2px 2px at 10% 20%, rgba(16, 17, 20, .06) 40%, transparent 41%) repeat, radial-gradient(2px 2px at 60% 70%, rgba(16, 17, 20, .06) 40%, transparent 41%) repeat;
+            background-size: 120px 120px, 140px 140px;
+            mix-blend-mode: multiply;
+        }
+        
+        .popcorn {
+            position: absolute;
+            right: -6%;
+            bottom: -4%;
+            width: min(520px, 90%);
+            opacity: .95;
+            filter: drop-shadow(0 16px 30px rgba(16, 17, 20, .12));
+        }
+        
+        .svg-fill {
+            width: 100%;
+            height: auto;
+            display: block
+        }
+        /* Sections */
+        
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--line)
+        }
+        
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 28px
+        }
+        
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+            letter-spacing: .2px;
+        }
+        
+        .section-kicker {
+            color: var(--muted)
+        }
+        /* Products */
+        
+        .products {
+            background: linear-gradient(180deg, #ffffff, #f7f8fb)
+        }
+        
+        .grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(12, 1fr)
+        }
+        
+        .card {
+            grid-column: span 4;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: transform var(--speed), box-shadow var(--speed), border-color var(--speed);
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-strong);
+            border-color: #dfe3ea
+        }
+        
+        .card-media {
+            position: relative;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #f3f5fa, #eceff6)
+        }
+        
+        .card-media .badge {
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            z-index: 2;
+            background: #fff;
+            color: #101114;
+            border: 1px solid #f0f2f7;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .02em;
+            box-shadow: 0 6px 14px rgba(16, 17, 20, .06)
+        }
+        
+        .card-body {
+            padding: 18px
+        }
+        
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 1.15rem
+        }
+        
+        .price {
+            color: #747985;
+            font-weight: 700;
+            letter-spacing: .02em
+        }
+        
+        .pillbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0 16px
+        }
+        
+        .pill {
+            border: 1px solid var(--line);
+            color: #4f5560;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: .8rem;
+            background: linear-gradient(180deg, #fff, #fafbfe);
+            box-shadow: 0 6px 14px rgba(16, 17, 20, .04);
+        }
+        
+        .card-actions {
+            display: flex;
+            gap: 10px
+        }
+        /* Story / Process */
+        
+        .split {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 38px;
+            align-items: center
+        }
+        
+        .process-steps {
+            display: grid;
+            gap: 14px
+        }
+        
+        .step {
+            background: linear-gradient(180deg, #ffffff, #f6f7fb);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 16px 16px 16px 18px;
+            box-shadow: var(--shadow);
+        }
+        
+        .step b {
+            color: #101114
+        }
+        
+        .step small {
+            color: #68707c;
+            display: block;
+            margin-top: 4px
+        }
+        /* Reviews */
+        
+        .reviews .grid .quote {
+            grid-column: span 6
+        }
+        
+        .quote {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+        
+        .quote p {
+            margin: 0 0 10px
+        }
+        
+        .quote cite {
+            color: #727883;
+            font-style: normal;
+            font-weight: 700
+        }
+        /* Events */
+        
+        .event {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .event .when {
+            color: #757c87
+        }
+        
+        .event .where {
+            font-weight: 800
+        }
+        /* Wholesale CTA */
+        
+        .cta {
+            background: linear-gradient(180deg, #fff, #f6f7fb);
+            border: 1px solid var(--line);
+            border-radius: calc(var(--radius) + 4px);
+            padding: 26px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 18px;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta p {
+            color: #3e434b;
+            margin: 6px 0 0
+        }
+        /* Footer */
+        
+        .footer {
+            padding: 50px 0 70px;
+            background: linear-gradient(180deg, #ffffff, #f7f8fb)
+        }
+        
+        .footgrid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 26px
+        }
+        
+        .footgrid h4 {
+            margin: 0 0 10px
+        }
+        
+        .footgrid a {
+            color: #5a606b;
+            font-weight: 600
+        }
+        
+        .subtle {
+            color: #7b818d;
+            font-size: .95rem;
+            margin-top: 10px
+        }
+        
+        .legal {
+            border-top: 1px solid var(--line);
+            margin-top: 26px;
+            padding-top: 18px;
+            color: #778090;
+            font-size: .9rem
+        }
+        /* Reveal on scroll */
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+        
+        .reveal.in {
+            opacity: 1;
+            transform: none
+        }
+        /* Responsive */
+        
+        @media (max-width: 1024px) {
+            .hero-inner,
+            .split {
+                grid-template-columns: 1fr
+            }
+            .nav-links {
+                display: none
+            }
+            .menu-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                background: #fff;
+                box-shadow: var(--shadow)
+            }
+            .drawer {
+                position: fixed;
+                inset: 70px 0 0 auto;
+                width: min(84vw, 360px);
+                background: #fff;
+                border-left: 1px solid var(--line);
+                transform: translateX(100%);
+                transition: transform var(--speed);
+                box-shadow: -12px 0 40px rgba(16, 17, 20, .12);
+                padding: 18px
+            }
+            .drawer.open {
+                transform: none
+            }
+            .drawer a {
+                display: block;
+                padding: 14px 6px;
+                color: #101114;
+                border-bottom: 1px dashed var(--line);
+                font-weight: 700
+            }
+            .card {
+                grid-column: span 6
+            }
+            .reviews .grid .quote {
+                grid-column: span 12
+            }
+            .footgrid {
+                grid-template-columns: 1fr 1fr
+            }
+            .cta {
+                grid-template-columns: 1fr
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .card {
+                grid-column: span 12
+            }
+            .footgrid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="#" class="brand">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <b>Kettle Bandit</b>
+            </a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#products">Products</a>
+                <a href="#story">Our Story</a>
+                <a href="#events">Find Us</a>
+                <a href="#wholesale">Wholesale</a>
+            </nav>
+            <div class="nav-cta">
+                <a class="btn btn--ghost" href="#products">Shop Flavors</a>
+                <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
+            </div>
+        </div>
+        <div class="drawer" id="drawer">
+            <a href="#products">Products</a>
+            <a href="#story">Our Story</a>
+            <a href="#events">Find Us</a>
+            <a href="#wholesale">Wholesale</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div>
+                <span class="eyebrow">Small-Batch • Hand-Stirred • Texas Made</span>
+                <h1>Sweet Heat. <span style="color:var(--accent)">Perfect Crunch.</span> Bandit Approved.</h1>
+                <p>
+                    Kettle Bandit crafts bold, small-batch kettle corn with a signature glaze that crackles. From Classic to Chili Heat, every batch is stirred by hand and sealed fresh.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn" href="#products">Shop Signature Flavors →</a>
+                    <a class="btn btn--ghost" href="#story">Meet the Bandit</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <div class="grain" aria-hidden="true"></div>
+                <!-- Decorative SVG popcorn silhouette (light mode) -->
+                <svg class="popcorn svg-fill" viewBox="0 0 800 600" role="img" aria-label="Popcorn silhouette">
+          <defs>
+            <linearGradient id="popgrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#ffb3b7"/>
+              <stop offset="100%" stop-color="#ff7079"/>
+            </linearGradient>
+          </defs>
+          <g opacity="0.95">
+            <circle cx="330" cy="240" r="120" fill="url(#popgrad)"/>
+            <circle cx="420" cy="220" r="90" fill="#ffa5ac"/>
+            <circle cx="420" cy="330" r="120" fill="#ff8b93"/>
+            <circle cx="300" cy="340" r="100" fill="#ff7b85"/>
+            <rect x="270" y="340" width="220" height="140" rx="22" fill="#ffffff" stroke="#e7e9f0"/>
+            <rect x="300" y="360" width="160" height="24" rx="6" fill="#e21f2f"/>
+          </g>
+        </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Signature Lineup</div>
+                    <h2 class="section-title">Freshly Popped • Irresistibly Glazed</h2>
+                </div>
+                <p class="section-kicker">Snack bags, party tubs, and wholesale cases — shipped fresh.</p>
+            </div>
+
+            <div class="grid reveal">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-media">
+                        <span class="badge">Best Seller</span>
+                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
+              <defs><linearGradient id="g1" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#f3f5fb"/><stop offset="100%" stop-color="#eceff6"/></linearGradient></defs>
+              <rect width="1600" height="1000" fill="url(#g1)"/>
+              <g opacity=".45" fill="#e21f2f"><circle cx="300" cy="400" r="80"/><circle cx="420" cy="360" r="40"/><circle cx="520" cy="440" r="60"/><circle cx="600" cy="360" r="30"/></g>
+            </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3>Classic Kettle</h3>
+                        <div class="price">$8 · 8oz bag</div>
+                        <div class="pillbar"><span class="pill">Sweet</span><span class="pill">Crunch</span><span class="pill">Gluten-Free</span></div>
+                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-media">
+                        <span class="badge">Spicy</span>
+                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
+              <rect width="1600" height="1000" fill="#f2f4fa"/>
+              <path d="M0,900 C400,700 800,1000 1600,700 L1600,1000 L0,1000 Z" fill="rgba(226,31,47,.25)"/>
+            </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3>Chili Heat</h3>
+                        <div class="price">$9 · 8oz bag</div>
+                        <div class="pillbar"><span class="pill">Sweet-Heat</span><span class="pill">Real Chili</span><span class="pill">Vegan</span></div>
+                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-media">
+                        <span class="badge">Seasonal</span>
+                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
+              <rect width="1600" height="1000" fill="#f1f3f9"/>
+              <g fill="none" stroke="#e21f2f" opacity=".45" stroke-width="14">
+                <circle cx="800" cy="500" r="280"/><circle cx="800" cy="500" r="160"/>
+              </g>
+            </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3>Chocolate Drizzle</h3>
+                        <div class="price">$10 · 8oz bag</div>
+                        <div class="pillbar"><span class="pill">Decadent</span><span class="pill">Cocoa</span><span class="pill">Shareable</span></div>
+                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-media">
+                        <span class="badge">New</span>
+                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
+              <rect width="1600" height="1000" fill="#eff2f8"/>
+              <rect x="0" y="700" width="1600" height="300" fill="rgba(226,31,47,.18)"/>
+            </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3>Caramel Crunch</h3>
+                        <div class="price">$9 · 8oz bag</div>
+                        <div class="pillbar"><span class="pill">Buttery</span><span class="pill">Glaze</span><span class="pill">Small-Batch</span></div>
+                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <div class="card-media">
+                        <span class="badge">Party</span>
+                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
+              <rect width="1600" height="1000" fill="#f0f3f8"/>
+              <g fill="#e21f2f" opacity=".25"><rect x="200" y="300" width="1200" height="420" rx="40"/></g>
+            </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3>Party Tub (64oz)</h3>
+                        <div class="price">$24 · 64oz tub</div>
+                        <div class="pillbar"><span class="pill">Events</span><span class="pill">Movie Night</span><span class="pill">Share Size</span></div>
+                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <div class="card-media">
+                        <span class="badge">Bundle</span>
+                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
+              <rect width="1600" height="1000" fill="#eef1f7"/>
+              <path d="M0 700 Q800 900 1600 700 L1600 1000 L0 1000 Z" fill="rgba(226,31,47,.18)"/>
+            </svg>
+                    </div>
+                    <div class="card-body">
+                        <h3>Bandit Sampler (4-Pack)</h3>
+                        <div class="price">$32 · four 8oz bags</div>
+                        <div class="pillbar"><span class="pill">Mix & Match</span><span class="pill">Giftable</span><span class="pill">Free Sticker</span></div>
+                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story / Process -->
+    <section id="story">
+        <div class="container split">
+            <div class="reveal">
+                <div class="eyebrow">Our Story</div>
+                <h2 class="section-title">Born at a Night Market. Perfected by Fire.</h2>
+                <p>
+                    Kettle Bandit started with a copper kettle and a stubborn love for the perfect glaze. We stir every batch by hand to lock in that signature snap. No shortcuts. No compromise.
+                </p>
+                <div class="process-steps" style="margin-top:14px">
+                    <div class="step"><b>1) Heat & Pop</b> <small>Non-GMO kernels, premium oils, even heat.</small></div>
+                    <div class="step"><b>2) The Glaze</b> <small>Our proprietary sugar-salt blend for the Bandit crackle.</small></div>
+                    <div class="step"><b>3) Toss & Cool</b> <small>Hand-tossed for even coat; cooled fast to lock the crunch.</small></div>
+                    <div class="step"><b>4) Seal Fresh</b> <small>Same-day seal so your bag opens with a snap.</small></div>
+                </div>
+            </div>
+            <div class="reveal">
+                <div class="hero-media" style="min-height:380px">
+                    <div class="grain" aria-hidden="true"></div>
+                    <svg class="svg-fill" viewBox="0 0 1600 1000" role="img" aria-label="Copper kettle illustration">
+            <rect width="1600" height="1000" fill="#ffffff"/>
+            <g fill="none" stroke="#e21f2f" stroke-width="20" opacity=".85">
+              <ellipse cx="800" cy="600" rx="360" ry="180"/>
+              <path d="M440,600 L440,460 M1160,600 L1160,460"/>
+              <path d="M500,460 Q800,320 1100,460"/>
+            </g>
+          </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Kind Words</div>
+                    <h2 class="section-title">The Bandit Has Fans</h2>
+                </div>
+                <p class="section-kicker">Real reviews from pop-ups, festivals, and late-night snackers.</p>
+            </div>
+
+            <div class="grid">
+                <div class="quote reveal">
+                    <p>“The <b>Chili Heat</b> changed my movie nights. Perfect sweet to kick ratio.”</p>
+                    <cite>— Maya P.</cite>
+                </div>
+                <div class="quote reveal">
+                    <p>“That <b>snap</b> when you open the bag? Never gets old. Classic is undefeated.”</p>
+                    <cite>— Jordan F.</cite>
+                </div>
+                <div class="quote reveal">
+                    <p>“We bought the <b>Sampler</b> for our office — zero left in an hour.”</p>
+                    <cite>— Devon R.</cite>
+                </div>
+                <div class="quote reveal">
+                    <p>“Caramel Crunch tastes like the fair, but classed up.”</p>
+                    <cite>— Alyssa G.</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events / Find Us -->
+    <section id="events">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Find Us IRL</div>
+                    <h2 class="section-title">Pop-Ups & Markets</h2>
+                </div>
+                <p class="section-kicker">Catch the Bandit near you — fresh batches every weekend.</p>
+            </div>
+
+            <div class="grid">
+                <div class="event reveal" style="grid-column:span 6">
+                    <div>
+                        <div class="where">Downtown Night Market</div>
+                        <div class="when">Fridays • 6–10pm</div>
+                    </div>
+                    <a class="btn btn--ghost" href="#">Map</a>
+                </div>
+                <div class="event reveal" style="grid-column:span 6">
+                    <div>
+                        <div class="where">Riverside Farmers’ Market</div>
+                        <div class="when">Saturdays • 8am–1pm</div>
+                    </div>
+                    <a class="btn btn--ghost" href="#">Map</a>
+                </div>
+                <div class="event reveal" style="grid-column:span 6">
+                    <div>
+                        <div class="where">Art Walk & Bites</div>
+                        <div class="when">First Thursdays • 5–9pm</div>
+                    </div>
+                    <a class="btn btn--ghost" href="#">Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale CTA -->
+    <section id="wholesale">
+        <div class="container">
+            <div class="cta reveal">
+                <div>
+                    <div class="eyebrow">Wholesale</div>
+                    <h3 class="section-title" style="margin:.2rem 0 .6rem">Stock Kettle Bandit at Your Venue</h3>
+                    <p>Case pricing, custom flavors, private-label options, and fast turnaround for theaters, breweries, and events.</p>
+                </div>
+                <div>
+                    <a class="btn" href="#contact">Request Line Sheet →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footgrid">
+                <div>
+                    <a href="#" class="brand">
+                        <span class="brand-mark" aria-hidden="true"></span>
+                        <b>Kettle Bandit</b>
+                    </a>
+                    <p class="subtle">Small-batch kettle corn. Sweet, crackly, unforgettable.</p>
+                </div>
+                <div>
+                    <h4>Shop</h4>
+                    <a href="#products">All Flavors</a><br/>
+                    <a href="#products">Sampler</a><br/>
+                    <a href="#wholesale">Wholesale</a>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <a href="#story">Our Story</a><br/>
+                    <a href="#events">Find Us</a><br/>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <a href="mailto:hello@kettlebandit.com">hello@kettlebandit.com</a><br/>
+                    <span class="subtle">Mon–Fri, 9–5 CT</span>
+                </div>
+            </div>
+            <div class="legal">© <span id="year"></span> Kettle Bandit. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile drawer
+        const menuBtn = document.getElementById('menuBtn');
+        const drawer = document.getElementById('drawer');
+        menuBtn ? .addEventListener('click', () => drawer.classList.toggle('open'));
+
+        // Reveal on scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
+                }
+            });
+        }, {
+            threshold: .12
+        });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
