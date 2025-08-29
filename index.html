@@ -938,7 +938,7 @@
         // Mobile drawer
         const menuBtn = document.getElementById('menuBtn');
         const drawer = document.getElementById('drawer');
-        menuBtn ? .addEventListener('click', () => drawer.classList.toggle('open'));
+        menuBtn ? addEventListener('click', () => drawer.classList.toggle('open')) : null;
 
         // Reveal on scroll
         const io = new IntersectionObserver((entries) => {
