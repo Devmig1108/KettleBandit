@@ -477,6 +477,9 @@ section {
     .hero-inner {
         grid-template-columns: 1fr;
     }
+    .nav {
+        padding: 0 10px;
+    }
     .nav-links {
         display: none;
     }
