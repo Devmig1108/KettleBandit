@@ -2,600 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Kettle Bandit — Small-Batch Kettle Corn</title>
-    <meta name="description" content="Kettle Bandit crafts small-batch kettle corn in bold flavors. Freshly popped, perfectly glazed, impossible to share." />
+    <meta name="description" content="Kettle Bandit crafts small-batch kettle corn in bold flavors. Product listings for catering & wholesale inquiries." />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-         :root {
-            --bg: #f7f8fb;
-            /* overall page background */
-            --panel: #ffffff;
-            /* cards/panels */
-            --ink: #101114;
-            /* primary text */
-            --muted: #60646d;
-            /* secondary text */
-            --line: #e7e9f0;
-            /* subtle borders */
-            --accent: #e21f2f;
-            /* brand red */
-            --accent-2: #ff525c;
-            /* hover/active red */
-            --shadow: 0 10px 28px rgba(16, 17, 20, .08);
-            --shadow-strong: 0 18px 40px rgba(16, 17, 20, .12);
-            --radius: 16px;
-            --radius-sm: 10px;
-            --maxw: 1200px;
-            --gutter: 28px;
-            --speed: .35s;
-        }
-        
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box
-        }
-        
-        html,
-        body {
-            height: 100%
-        }
-        
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--ink);
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-        
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto
-        }
-        
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-        
-        .container {
-            max-width: var(--maxw);
-            margin: 0 auto;
-            padding: 0 var(--gutter)
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: .6rem;
-            background: var(--accent);
-            color: #fff;
-            border: 1px solid rgba(226, 31, 47, .1);
-            padding: 14px 20px;
-            border-radius: 999px;
-            font-weight: 800;
-            letter-spacing: .2px;
-            box-shadow: 0 6px 18px rgba(226, 31, 47, .25);
-            transition: transform var(--speed), box-shadow var(--speed), background var(--speed);
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 26px rgba(226, 31, 47, .35);
-            background: var(--accent-2)
-        }
-        
-        .btn--ghost {
-            background: #fff;
-            border: 1px solid var(--line);
-            color: var(--ink);
-            box-shadow: 0 6px 16px rgba(16, 17, 20, .06);
-            font-weight: 700;
-        }
-        
-        .btn--ghost:hover {
-            border-color: #d7d9e0;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(16, 17, 20, .08)
-        }
-        
-        .eyebrow {
-            display: inline-block;
-            font-size: .78rem;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: #8a8f99;
-            border: 1px solid var(--line);
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: linear-gradient(180deg, #fff, #fafbfe);
-        }
-        /* Header / Nav */
-        
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, .88);
-            backdrop-filter: saturate(140%) blur(10px);
-            border-bottom: 1px solid var(--line);
-        }
-        
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 0;
-        }
-        
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: .8rem;
-            font-weight: 900;
-            letter-spacing: .02em;
-        }
-        
-        .brand b {
-            font-family: "Playfair Display", serif;
-            font-weight: 700;
-            font-size: 1.05rem
-        }
-        
-        .brand-mark {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            position: relative;
-            background: linear-gradient(135deg, #ffffff, #f0f2f7);
-            border: 1px solid var(--line);
-            box-shadow: inset 0 0 0 1px #fff;
-        }
-        /* Bandit mask mark (light) */
-        
-        .brand-mark::before,
-        .brand-mark::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            margin: auto;
-        }
-        
-        .brand-mark::before {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 50% 40%, #f2f4fa 40%, #dde1ea 41%), radial-gradient(circle at 35% 55%, #101114 11%, transparent 12%), radial-gradient(circle at 65% 55%, #101114 11%, transparent 12%);
-            box-shadow: 0 0 0 2px #101114 inset;
-            top: 6px;
-        }
-        
-        .brand-mark::after {
-            width: 26px;
-            height: 10px;
-            border-radius: 6px;
-            top: 14px;
-            background: var(--accent);
-            box-shadow: 0 0 10px rgba(226, 31, 47, .35);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 26px;
-            align-items: center
-        }
-        
-        .nav-links a {
-            color: #3b3f46;
-            font-weight: 700
-        }
-        
-        .nav-links a:hover {
-            color: #101114
-        }
-        
-        .nav-cta {
-            display: flex;
-            gap: 10px
-        }
-        
-        .menu-btn {
-            display: none
-        }
-        /* Hero */
-        
-        .hero {
-            position: relative;
-            border-bottom: 1px solid var(--line);
-            background: radial-gradient(1000px 400px at 75% -10%, rgba(226, 31, 47, .10), transparent 60%), radial-gradient(800px 300px at 5% -10%, rgba(226, 31, 47, .06), transparent 60%), linear-gradient(180deg, #ffffff, #f9fafe);
-        }
-        
-        .hero-inner {
-            display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 48px;
-            align-items: center;
-            padding: 86px 0
-        }
-        
-        .hero h1 {
-            font-family: "Playfair Display", serif;
-            font-weight: 700;
-            margin: 10px 0 16px;
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
-            line-height: 1.08;
-            letter-spacing: .2px;
-        }
-        
-        .hero p {
-            color: #4b5059;
-            font-size: 1.06rem;
-            max-width: 58ch
-        }
-        
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 22px
-        }
-        
-        .hero-media {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: linear-gradient(135deg, #ffffff, #f2f4f9);
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow);
-            min-height: 420px;
-        }
-        
-        .grain {
-            position: absolute;
-            inset: 0;
-            opacity: .6;
-            background: radial-gradient(2px 2px at 10% 20%, rgba(16, 17, 20, .06) 40%, transparent 41%) repeat, radial-gradient(2px 2px at 60% 70%, rgba(16, 17, 20, .06) 40%, transparent 41%) repeat;
-            background-size: 120px 120px, 140px 140px;
-            mix-blend-mode: multiply;
-        }
-        
-        .popcorn {
-            position: absolute;
-            right: -6%;
-            bottom: -4%;
-            width: min(520px, 90%);
-            opacity: .95;
-            filter: drop-shadow(0 16px 30px rgba(16, 17, 20, .12));
-        }
-        
-        .svg-fill {
-            width: 100%;
-            height: auto;
-            display: block
-        }
-        /* Sections */
-        
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--line)
-        }
-        
-        .section-head {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 24px;
-            margin-bottom: 28px
-        }
-        
-        .section-title {
-            font-family: "Playfair Display", serif;
-            font-weight: 700;
-            font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-            letter-spacing: .2px;
-        }
-        
-        .section-kicker {
-            color: var(--muted)
-        }
-        /* Products */
-        
-        .products {
-            background: linear-gradient(180deg, #ffffff, #f7f8fb)
-        }
-        
-        .grid {
-            display: grid;
-            gap: 22px;
-            grid-template-columns: repeat(12, 1fr)
-        }
-        
-        .card {
-            grid-column: span 4;
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            overflow: hidden;
-            position: relative;
-            box-shadow: var(--shadow);
-            transition: transform var(--speed), box-shadow var(--speed), border-color var(--speed);
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-strong);
-            border-color: #dfe3ea
-        }
-        
-        .card-media {
-            position: relative;
-            aspect-ratio: 16/10;
-            background: linear-gradient(135deg, #f3f5fa, #eceff6)
-        }
-        
-        .card-media .badge {
-            position: absolute;
-            left: 14px;
-            top: 14px;
-            z-index: 2;
-            background: #fff;
-            color: #101114;
-            border: 1px solid #f0f2f7;
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: .78rem;
-            font-weight: 800;
-            letter-spacing: .02em;
-            box-shadow: 0 6px 14px rgba(16, 17, 20, .06)
-        }
-        
-        .card-body {
-            padding: 18px
-        }
-        
-        .card h3 {
-            margin: 0 0 6px;
-            font-size: 1.15rem
-        }
-        
-        .price {
-            color: #747985;
-            font-weight: 700;
-            letter-spacing: .02em
-        }
-        
-        .pillbar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px 0 16px
-        }
-        
-        .pill {
-            border: 1px solid var(--line);
-            color: #4f5560;
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: .8rem;
-            background: linear-gradient(180deg, #fff, #fafbfe);
-            box-shadow: 0 6px 14px rgba(16, 17, 20, .04);
-        }
-        
-        .card-actions {
-            display: flex;
-            gap: 10px
-        }
-        /* Story / Process */
-        
-        .split {
-            display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 38px;
-            align-items: center
-        }
-        
-        .process-steps {
-            display: grid;
-            gap: 14px
-        }
-        
-        .step {
-            background: linear-gradient(180deg, #ffffff, #f6f7fb);
-            border: 1px solid var(--line);
-            border-radius: var(--radius-sm);
-            padding: 16px 16px 16px 18px;
-            box-shadow: var(--shadow);
-        }
-        
-        .step b {
-            color: #101114
-        }
-        
-        .step small {
-            color: #68707c;
-            display: block;
-            margin-top: 4px
-        }
-        /* Reviews */
-        
-        .reviews .grid .quote {
-            grid-column: span 6
-        }
-        
-        .quote {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            padding: 22px;
-            box-shadow: var(--shadow);
-        }
-        
-        .quote p {
-            margin: 0 0 10px
-        }
-        
-        .quote cite {
-            color: #727883;
-            font-style: normal;
-            font-weight: 700
-        }
-        /* Events */
-        
-        .event {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-sm);
-            padding: 16px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 10px;
-            align-items: center;
-            box-shadow: var(--shadow);
-        }
-        
-        .event .when {
-            color: #757c87
-        }
-        
-        .event .where {
-            font-weight: 800
-        }
-        /* Wholesale CTA */
-        
-        .cta {
-            background: linear-gradient(180deg, #fff, #f6f7fb);
-            border: 1px solid var(--line);
-            border-radius: calc(var(--radius) + 4px);
-            padding: 26px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 18px;
-            box-shadow: var(--shadow);
-        }
-        
-        .cta p {
-            color: #3e434b;
-            margin: 6px 0 0
-        }
-        /* Footer */
-        
-        .footer {
-            padding: 50px 0 70px;
-            background: linear-gradient(180deg, #ffffff, #f7f8fb)
-        }
-        
-        .footgrid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 26px
-        }
-        
-        .footgrid h4 {
-            margin: 0 0 10px
-        }
-        
-        .footgrid a {
-            color: #5a606b;
-            font-weight: 600
-        }
-        
-        .subtle {
-            color: #7b818d;
-            font-size: .95rem;
-            margin-top: 10px
-        }
-        
-        .legal {
-            border-top: 1px solid var(--line);
-            margin-top: 26px;
-            padding-top: 18px;
-            color: #778090;
-            font-size: .9rem
-        }
-        /* Reveal on scroll */
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity .6s ease, transform .6s ease
-        }
-        
-        .reveal.in {
-            opacity: 1;
-            transform: none
-        }
-        /* Responsive */
-        
-        @media (max-width: 1024px) {
-            .hero-inner,
-            .split {
-                grid-template-columns: 1fr
-            }
-            .nav-links {
-                display: none
-            }
-            .menu-btn {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 40px;
-                height: 40px;
-                border: 1px solid var(--line);
-                border-radius: 10px;
-                background: #fff;
-                box-shadow: var(--shadow)
-            }
-            .drawer {
-                position: fixed;
-                inset: 70px 0 0 auto;
-                width: min(84vw, 360px);
-                background: #fff;
-                border-left: 1px solid var(--line);
-                transform: translateX(100%);
-                transition: transform var(--speed);
-                box-shadow: -12px 0 40px rgba(16, 17, 20, .12);
-                padding: 18px
-            }
-            .drawer.open {
-                transform: none
-            }
-            .drawer a {
-                display: block;
-                padding: 14px 6px;
-                color: #101114;
-                border-bottom: 1px dashed var(--line);
-                font-weight: 700
-            }
-            .card {
-                grid-column: span 6
-            }
-            .reviews .grid .quote {
-                grid-column: span 12
-            }
-            .footgrid {
-                grid-template-columns: 1fr 1fr
-            }
-            .cta {
-                grid-template-columns: 1fr
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .card {
-                grid-column: span 12
-            }
-            .footgrid {
-                grid-template-columns: 1fr
-            }
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- Social previews -->
+    <meta property="og:title" content="Kettle Bandit — Small-Batch Kettle Corn" />
+    <meta property="og:description" content="Bold flavors. Perfect crunch. Product listings for catering & wholesale." />
+    <meta property="og:image" content="images/cart_fair.JPG" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.PNG" />
 </head>
 
 <body>
@@ -604,25 +29,24 @@
     <header class="header">
         <div class="container nav">
             <a href="#" class="brand">
-                <span class="brand-mark" aria-hidden="true"></span>
+                <img class="logo" src="images/logo.PNG" alt="Kettle Bandit logo" />
                 <b>Kettle Bandit</b>
             </a>
             <nav class="nav-links" aria-label="Primary">
-                <a href="#products">Products</a>
-                <a href="#story">Our Story</a>
+                <a href="#products" aria-current="page">Products</a>
+                <a href="#details">Details</a>
                 <a href="#events">Find Us</a>
-                <a href="#wholesale">Wholesale</a>
+                <a href="#contact">Contact</a>
             </nav>
             <div class="nav-cta">
-                <a class="btn btn--ghost" href="#products">Shop Flavors</a>
+                <a class="btn btn--ghost" href="#contact">Request Catering / Wholesale</a>
                 <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
             </div>
         </div>
         <div class="drawer" id="drawer">
             <a href="#products">Products</a>
-            <a href="#story">Our Story</a>
+            <a href="#details">Details</a>
             <a href="#events">Find Us</a>
-            <a href="#wholesale">Wholesale</a>
             <a href="#contact">Contact</a>
         </div>
     </header>
@@ -631,232 +55,201 @@
     <section class="hero">
         <div class="container hero-inner">
             <div>
-                <span class="eyebrow">Small-Batch • Hand-Stirred • Texas Made</span>
+                <span class="eyebrow">Small-Batch • Hand-Stirred • Bold Flavors</span>
                 <h1>Sweet Heat. <span style="color:var(--accent)">Perfect Crunch.</span> Bandit Approved.</h1>
                 <p>
-                    Kettle Bandit crafts bold, small-batch kettle corn with a signature glaze that crackles. From Classic to Chili Heat, every batch is stirred by hand and sealed fresh.
+                    Kettle Bandit crafts small-batch kettle corn with a signature glaze that crackles. This site lists our flavors and sizes. For orders, catering, or wholesale, reach out below or find us at a market.
                 </p>
                 <div class="hero-actions">
-                    <a class="btn" href="#products">Shop Signature Flavors →</a>
-                    <a class="btn btn--ghost" href="#story">Meet the Bandit</a>
+                    <a class="btn" href="#products">Browse Products</a>
+                    <a class="btn btn--ghost" href="#contact">Contact Us</a>
                 </div>
             </div>
-            <div class="hero-media">
-                <div class="grain" aria-hidden="true"></div>
-                <!-- Decorative SVG popcorn silhouette (light mode) -->
-                <svg class="popcorn svg-fill" viewBox="0 0 800 600" role="img" aria-label="Popcorn silhouette">
-          <defs>
-            <linearGradient id="popgrad" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#ffb3b7"/>
-              <stop offset="100%" stop-color="#ff7079"/>
-            </linearGradient>
-          </defs>
-          <g opacity="0.95">
-            <circle cx="330" cy="240" r="120" fill="url(#popgrad)"/>
-            <circle cx="420" cy="220" r="90" fill="#ffa5ac"/>
-            <circle cx="420" cy="330" r="120" fill="#ff8b93"/>
-            <circle cx="300" cy="340" r="100" fill="#ff7b85"/>
-            <rect x="270" y="340" width="220" height="140" rx="22" fill="#ffffff" stroke="#e7e9f0"/>
-            <rect x="300" y="360" width="160" height="24" rx="6" fill="#e21f2f"/>
-          </g>
-        </svg>
-            </div>
+            <figure class="hero-media">
+                <!-- Hero image is critical: keep eager load (no loading="lazy") -->
+                <img src="images/cart_fair.JPG" alt="Kettle Bandit red cart at a fair with a ferris wheel at sunset" />
+            </figure>
         </div>
     </section>
 
-    <!-- Products -->
+    <!-- Products (listings only) -->
     <section id="products" class="products">
         <div class="container">
             <div class="section-head">
                 <div>
-                    <div class="eyebrow">Signature Lineup</div>
+                    <div class="eyebrow sub-eyebrow">Product Listings</div>
                     <h2 class="section-title">Freshly Popped • Irresistibly Glazed</h2>
                 </div>
-                <p class="section-kicker">Snack bags, party tubs, and wholesale cases — shipped fresh.</p>
+                <p class="section-kicker">These are our core offerings. Tap “View details” for sizes, ingredients, and notes.</p>
             </div>
 
             <div class="grid reveal">
-                <!-- Card 1 -->
-                <article class="card">
-                    <div class="card-media">
-                        <span class="badge">Best Seller</span>
-                        <!-- <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true"> -->
-                        <img src="images/kettle-bags.jpg" alt="Multiple Kettle Popcorn Bags" />
-
-                        <defs>
-                            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                                <stop offset="0%" stop-color="#f3f5fb" />
-                                <stop offset="100%" stop-color="#eceff6" />
-                            </linearGradient>
-                        </defs>
-                        <rect width="1600" height="1000" fill="url(#g1)" />
-                        <g opacity=".45" fill="#e21f2f">
-                            <circle cx="300" cy="400" r="80" />
-                            <circle cx="420" cy="360" r="40" />
-                            <circle cx="520" cy="440" r="60" />
-                            <circle cx="600" cy="360" r="30" />
-                        </g>
-                        </svg>
-                    </div>
-                    <div class="card-body">
-                        <h3>Classic Kettle</h3>
-                        <div class="price">$8 · 8oz bag</div>
-                        <div class="pillbar"><span class="pill">Sweet</span><span class="pill">Crunch</span><span class="pill">Gluten-Free</span></div>
-                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
-                    </div>
-                </article>
-
-                <!-- Card 2 -->
+                <!-- Spicy Kettle -->
                 <article class="card">
                     <div class="card-media">
                         <span class="badge">Spicy</span>
-                        <!-- <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true"> -->
-                        <img src="images/kettle-hot.jpg" alt="Multiple Kettle Popcorn Bags" />
-                        <rect width="1600" height="1000" fill="#f2f4fa" />
-                        <path d="M0,900 C400,700 800,1000 1600,700 L1600,1000 L0,1000 Z" fill="rgba(226,31,47,.25)" />
-                        </svg>
+                        <img src="images/kettle_hot.JPG" alt="Close up of spicy kettle corn with red glaze highlights" loading="lazy" decoding="async" />
                     </div>
                     <div class="card-body">
-                        <h3>Chili Heat</h3>
-                        <div class="price">$9 · 8oz bag</div>
-                        <div class="pillbar"><span class="pill">Sweet-Heat</span><span class="pill">Real Chili</span><span class="pill">Vegan</span></div>
-                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                        <h3>Spicy Kettle</h3>
+                        <div class="pillbar">
+                            <span class="pill">Spicy</span><span class="pill">Salty</span><span class="pill">Gluten-Free</span>
+                        </div>
+                        <p class="desc">Our signature kettle popcorn with a chili kick.</p>
+                        <div class="actions"><a href="#spicy">View details →</a></div>
                     </div>
                 </article>
 
-                <!-- Card 3 -->
+                <!-- Pink Caramel -->
+                <article class="card">
+                    <div class="card-media">
+                        <span class="badge">Fan Favorite</span>
+                        <img src="images/pink_bg.JPG" alt="Pink-tinted kettle corn closeup" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Pink Caramel</h3>
+                        <div class="pillbar">
+                            <span class="pill">Sweet</span><span class="pill">Colorful</span><span class="pill">Fair Favorite</span>
+                        </div>
+                        <p class="desc">Light caramel glaze with a radiant pink pop.</p>
+                        <div class="actions"><a href="#pink">View details →</a></div>
+                    </div>
+                </article>
+
+                <!-- Green Caramel -->
                 <article class="card">
                     <div class="card-media">
                         <span class="badge">Seasonal</span>
-                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
-              <rect width="1600" height="1000" fill="#f1f3f9"/>
-              <g fill="none" stroke="#e21f2f" opacity=".45" stroke-width="14">
-                <circle cx="800" cy="500" r="280"/><circle cx="800" cy="500" r="160"/>
-              </g>
-            </svg>
+                        <img src="images/green_bg.JPG" alt="Green apple kettle corn closeup" loading="lazy" decoding="async" />
                     </div>
                     <div class="card-body">
-                        <h3>Chocolate Drizzle</h3>
-                        <div class="price">$10 · 8oz bag</div>
-                        <div class="pillbar"><span class="pill">Decadent</span><span class="pill">Cocoa</span><span class="pill">Shareable</span></div>
-                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                        <h3>Green Caramel</h3>
+                        <div class="pillbar">
+                            <span class="pill">Sweet</span><span class="pill">Colorful</span><span class="pill">Fan Favorite</span>
+                        </div>
+                        <p class="desc">Caramel glaze with a vibrant green color.</p>
+                        <div class="actions"><a href="#green">View details →</a></div>
                     </div>
                 </article>
 
-                <!-- Card 4 -->
+                <!-- Red & White Combo -->
                 <article class="card">
                     <div class="card-media">
-                        <span class="badge">New</span>
-                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
-              <rect width="1600" height="1000" fill="#eff2f8"/>
-              <rect x="0" y="700" width="1600" height="300" fill="rgba(226,31,47,.18)"/>
-            </svg>
+                        <span class="badge">Mix</span>
+                        <img src="images/scoop_bg.JPG" alt="Scoop in a mix of red and white kettle corn" loading="lazy" decoding="async" />
                     </div>
                     <div class="card-body">
-                        <h3>Caramel Crunch</h3>
-                        <div class="price">$9 · 8oz bag</div>
-                        <div class="pillbar"><span class="pill">Buttery</span><span class="pill">Glaze</span><span class="pill">Small-Batch</span></div>
-                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                        <h3>Red & White Combo</h3>
+                        <div class="pillbar">
+                            <span class="pill">Sweet</span><span class="pill">Shareable</span><span class="pill">Crowd-Pleaser</span>
+                        </div>
+                        <p class="desc">A festive blend of classic and cherry-vanilla kernels.</p>
+                        <div class="actions"><a href="#combo">View details →</a></div>
                     </div>
                 </article>
 
-                <!-- Card 5 -->
+                <!-- Rainbow Mix -->
                 <article class="card">
                     <div class="card-media">
                         <span class="badge">Party</span>
-                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
-              <rect width="1600" height="1000" fill="#f0f3f8"/>
-              <g fill="#e21f2f" opacity=".25"><rect x="200" y="300" width="1200" height="420" rx="40"/></g>
-            </svg>
+                        <img src="images/display_L.JPG" alt="Assorted colorful kettle corn bags lined up at the cart window" loading="lazy" decoding="async" />
                     </div>
                     <div class="card-body">
-                        <h3>Party Tub (64oz)</h3>
-                        <div class="price">$24 · 64oz tub</div>
-                        <div class="pillbar"><span class="pill">Events</span><span class="pill">Movie Night</span><span class="pill">Share Size</span></div>
-                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                        <h3>Rainbow Mix</h3>
+                        <div class="pillbar">
+                            <span class="pill">Colorful</span><span class="pill">Kids Love It</span><span class="pill">Assorted Flavors</span>
+                        </div>
+                        <p class="desc">A rotating assortment of flavored kernels.</p>
+                        <div class="actions"><a href="#rainbow">View details →</a></div>
                     </div>
                 </article>
 
-                <!-- Card 6 -->
+                <!-- Fresh Lemonade (Add-On) -->
                 <article class="card">
                     <div class="card-media">
-                        <span class="badge">Bundle</span>
-                        <svg viewBox="0 0 1600 1000" class="svg-fill" aria-hidden="true">
-              <rect width="1600" height="1000" fill="#eef1f7"/>
-              <path d="M0 700 Q800 900 1600 700 L1600 1000 L0 1000 Z" fill="rgba(226,31,47,.18)"/>
-            </svg>
+                        <span class="badge">Add-On</span>
+                        <img src="images/combo.JPG" alt="Iced lemonade cup next to a bag of kettle corn" loading="lazy" decoding="async" />
                     </div>
                     <div class="card-body">
-                        <h3>Bandit Sampler (4-Pack)</h3>
-                        <div class="price">$32 · four 8oz bags</div>
-                        <div class="pillbar"><span class="pill">Mix & Match</span><span class="pill">Giftable</span><span class="pill">Free Sticker</span></div>
-                        <div class="card-actions"><a href="#" class="btn">Add to Cart</a><a href="#" class="btn btn--ghost">Details</a></div>
+                        <h3>Fresh Lemonade (Add-On)</h3>
+                        <div class="pillbar">
+                            <span class="pill">House-Made</span><span class="pill">Perfect Pair</span>
+                        </div>
+                        <p class="desc">Ask about lemonade service for events and pop-ups.</p>
+                        <div class="actions"><a href="#lemonade">View details →</a></div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Story / Process -->
-    <section id="story">
-        <div class="container split">
-            <div class="reveal">
-                <div class="eyebrow">Our Story</div>
-                <h2 class="section-title">Born at a Night Market. Perfected by Fire.</h2>
-                <p>
-                    Kettle Bandit started with a copper kettle and a stubborn love for the perfect glaze. We stir every batch by hand to lock in that signature snap. No shortcuts. No compromise.
-                </p>
-                <div class="process-steps" style="margin-top:14px">
-                    <div class="step"><b>1) Heat & Pop</b> <small>Non-GMO kernels, premium oils, even heat.</small></div>
-                    <div class="step"><b>2) The Glaze</b> <small>Our proprietary sugar-salt blend for the Bandit crackle.</small></div>
-                    <div class="step"><b>3) Toss & Cool</b> <small>Hand-tossed for even coat; cooled fast to lock the crunch.</small></div>
-                    <div class="step"><b>4) Seal Fresh</b> <small>Same-day seal so your bag opens with a snap.</small></div>
-                </div>
-            </div>
-            <div class="reveal">
-                <div class="hero-media" style="min-height:380px">
-                    <div class="grain" aria-hidden="true"></div>
-                    <svg class="svg-fill" viewBox="0 0 1600 1000" role="img" aria-label="Copper kettle illustration">
-            <rect width="1600" height="1000" fill="#ffffff"/>
-            <g fill="none" stroke="#e21f2f" stroke-width="20" opacity=".85">
-              <ellipse cx="800" cy="600" rx="360" ry="180"/>
-              <path d="M440,600 L440,460 M1160,600 L1160,460"/>
-              <path d="M500,460 Q800,320 1100,460"/>
-            </g>
-          </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews -->
-    <section class="reviews">
+    <!-- Details (anchors only; no commerce) -->
+    <section id="details">
         <div class="container">
             <div class="section-head">
                 <div>
-                    <div class="eyebrow">Kind Words</div>
-                    <h2 class="section-title">The Bandit Has Fans</h2>
+                    <div class="eyebrow sub-eyebrow">Product Details</div>
+                    <h2 class="section-title">Sizes • Ingredients • Notes</h2>
                 </div>
-                <p class="section-kicker">Real reviews from pop-ups, festivals, and late-night snackers.</p>
+                <p class="section-kicker">For pricing, availability, catering, and wholesale, please contact us below.</p>
             </div>
 
-            <div class="grid">
-                <div class="quote reveal">
-                    <p>“The <b>Chili Heat</b> changed my movie nights. Perfect sweet to kick ratio.”</p>
-                    <cite>— Maya P.</cite>
-                </div>
-                <div class="quote reveal">
-                    <p>“That <b>snap</b> when you open the bag? Never gets old. Classic is undefeated.”</p>
-                    <cite>— Jordan F.</cite>
-                </div>
-                <div class="quote reveal">
-                    <p>“We bought the <b>Sampler</b> for our office — zero left in an hour.”</p>
-                    <cite>— Devon R.</cite>
-                </div>
-                <div class="quote reveal">
-                    <p>“Caramel Crunch tastes like the fair, but classed up.”</p>
-                    <cite>— Alyssa G.</cite>
-                </div>
+            <div class="details">
+                <article id="spicy" class="detail reveal">
+                    <img src="images/kettle_hot.JPG" alt="Bag of spicy kettle corn with red glaze" loading="lazy" decoding="async" />
+                    <div class="copy">
+                        <h4>Spicy Kettle</h4>
+                        <div class="meta">Sizes: 8oz • 16oz • Party Tub</div>
+                        <p>Classic sweet–salt with a chili kick. Non-GMO corn, cane sugar, oil, salt, spices.</p>
+                        <p><strong>Great for:</strong> Game nights, festivals, heat lovers.</p>
+                    </div>
+                </article>
+
+                <article id="pink" class="detail reveal">
+                    <img src="images/pink.JPG" alt="Close-up of pink vanilla kettle corn" loading="lazy" decoding="async" />
+                    <div class="copy">
+                        <h4>Pink Caramel</h4>
+                        <div class="meta">Sizes: 8oz • 16oz</div>
+                        <p>Light caramel glaze with a pink hue — a fairground favorite that photographs beautifully.</p>
+                        <p><strong>Note:</strong> Dye-free option available on request.</p>
+                    </div>
+                </article>
+
+                <article id="green" class="detail reveal">
+                    <img src="images/green_bg.JPG" alt="Green apple kettle corn closeup" loading="lazy" decoding="async" />
+                    <div class="copy">
+                        <h4>Green Caramel</h4>
+                        <div class="meta">Sizes: 8oz • 16oz • Limited seasonal runs</div>
+                        <p>Caramel glaze with a vibrant green color. Makes an eye-catching display at markets.</p>
+                    </div>
+                </article>
+
+                <article id="combo" class="detail reveal">
+                    <img src="images/scoop_bg.JPG" alt="Scoop with red and white kettle corn mix" loading="lazy" decoding="async" />
+                    <div class="copy">
+                        <h4>Red & White Combo</h4>
+                        <div class="meta">Sizes: 16oz • Party Tub</div>
+                        <p>Mix of Classic and Cherry-Vanilla kernels for a festive look and layered flavor.</p>
+                    </div>
+                </article>
+
+                <article id="rainbow" class="detail reveal">
+                    <img src="images/display_L.JPG" alt="Row of colorful kettle corn bags in various flavors" loading="lazy" decoding="async" />
+                    <div class="copy">
+                        <h4>Rainbow Mix</h4>
+                        <div class="meta">Sizes: 8oz • 16oz • Bulk</div>
+                        <p>Assorted fruit-glazed kernels. Selection varies by event; ask about current lineup.</p>
+                    </div>
+                </article>
+
+                <article id="lemonade" class="detail reveal">
+                    <img src="images/combo.JPG" alt="Iced lemonade beside kettle corn bag" loading="lazy" decoding="async" />
+                    <div class="copy">
+                        <h4>Fresh Lemonade (Add-On)</h4>
+                        <div class="meta">Sizes: 16oz • 24oz (events only)</div>
+                        <p>House-made lemonade pairs perfectly with our sweet-salt crunch. Available for catering and markets.</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -866,7 +259,7 @@
         <div class="container">
             <div class="section-head">
                 <div>
-                    <div class="eyebrow">Find Us IRL</div>
+                    <div class="eyebrow sub-eyebrow">Find Us IRL</div>
                     <h2 class="section-title">Pop-Ups & Markets</h2>
                 </div>
                 <p class="section-kicker">Catch the Bandit near you — fresh batches every weekend.</p>
@@ -875,72 +268,51 @@
             <div class="grid">
                 <div class="event reveal" style="grid-column:span 6">
                     <div>
-                        <div class="where">Downtown Night Market</div>
+                        <div class="where">Fountains at Farrah Farmer's Market</div>
                         <div class="when">Fridays • 6–10pm</div>
                     </div>
                     <a class="btn btn--ghost" href="#">Map</a>
                 </div>
                 <div class="event reveal" style="grid-column:span 6">
                     <div>
-                        <div class="where">Riverside Farmers’ Market</div>
+                        <div class="where">Fox Plaza Market</div>
                         <div class="when">Saturdays • 8am–1pm</div>
                     </div>
                     <a class="btn btn--ghost" href="#">Map</a>
                 </div>
-                <div class="event reveal" style="grid-column:span 6">
-                    <div>
-                        <div class="where">Art Walk & Bites</div>
-                        <div class="when">First Thursdays • 5–9pm</div>
-                    </div>
-                    <a class="btn btn--ghost" href="#">Map</a>
-                </div>
+                <figure class="hero-media reveal" style="grid-column:span 12; min-height:320px">
+                    <img src="images/cart_pl.JPG" alt="Red kettle corn trailer with product bags displayed at the window" loading="lazy" decoding="async" />
+                </figure>
             </div>
         </div>
     </section>
 
-    <!-- Wholesale CTA -->
-    <section id="wholesale">
-        <div class="container">
-            <div class="cta reveal">
-                <div>
-                    <div class="eyebrow">Wholesale</div>
-                    <h3 class="section-title" style="margin:.2rem 0 .6rem">Stock Kettle Bandit at Your Venue</h3>
-                    <p>Case pricing, custom flavors, private-label options, and fast turnaround for theaters, breweries, and events.</p>
-                </div>
-                <div>
-                    <a class="btn" href="#contact">Request Line Sheet →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Footer / Contact -->
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footgrid">
                 <div>
                     <a href="#" class="brand">
-                        <span class="brand-mark" aria-hidden="true"></span>
+                        <img class="logo" src="images/logo.PNG" alt="Kettle Bandit logo small" />
                         <b>Kettle Bandit</b>
                     </a>
                     <p class="subtle">Small-batch kettle corn. Sweet, crackly, unforgettable.</p>
                 </div>
                 <div>
-                    <h4>Shop</h4>
-                    <a href="#products">All Flavors</a><br/>
-                    <a href="#products">Sampler</a><br/>
-                    <a href="#wholesale">Wholesale</a>
-                </div>
-                <div>
-                    <h4>Company</h4>
-                    <a href="#story">Our Story</a><br/>
-                    <a href="#events">Find Us</a><br/>
-                    <a href="#contact">Contact</a>
+                    <h4>Products</h4>
+                    <a href="#products">All Listings</a><br/>
+                    <a href="#details">Sizes & Ingredients</a><br/>
+                    <a href="#events">Find Us</a>
                 </div>
                 <div>
                     <h4>Contact</h4>
                     <a href="mailto:hello@kettlebandit.com">hello@kettlebandit.com</a><br/>
                     <span class="subtle">Mon–Fri, 9–5 CT</span>
+                </div>
+                <div>
+                    <h4>Catering & Wholesale</h4>
+                    <p class="subtle">Tell us your date, headcount, and flavors. We’ll get you a quote fast.</p>
+                    <a class="btn" href="mailto:hello@kettlebandit.com?subject=Catering%20%2F%20Wholesale%20Inquiry">Request Quote →</a>
                 </div>
             </div>
             <div class="legal">© <span id="year"></span> Kettle Bandit. All rights reserved.</div>
@@ -948,14 +320,18 @@
     </footer>
 
     <script>
-        // Mobile drawer
-        const menuBtn = document.getElementById('menuBtn');
-        const drawer = document.getElementById('drawer');
-        menuBtn ? addEventListener('click', () => drawer.classList.toggle('open')) : null;
+        // Mobile drawer (formatter-safe: no optional chaining)
+        var menuBtn = document.getElementById('menuBtn');
+        var drawer = document.getElementById('drawer');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', function() {
+                if (drawer) drawer.classList.toggle('open');
+            });
+        }
 
         // Reveal on scroll
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
                 if (e.isIntersecting) {
                     e.target.classList.add('in');
                     io.unobserve(e.target);
@@ -964,7 +340,9 @@
         }, {
             threshold: .12
         });
-        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            io.observe(el);
+        });
 
         // Year
         document.getElementById('year').textContent = new Date().getFullYear();
