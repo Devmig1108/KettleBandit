@@ -376,6 +376,10 @@ section {
     padding: 18px
 }
 
+.copy {
+    background-color: white;
+}
+
 .detail h4 {
     margin: 0 0 8px;
     font-size: 1.25rem
