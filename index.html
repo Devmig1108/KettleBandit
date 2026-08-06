@@ -1,352 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Kettle Bandit — Small-Batch Kettle Corn</title>
-    <meta name="description" content="Kettle Bandit crafts small-batch kettle corn in bold flavors. Product listings for catering & wholesale inquiries." />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-
-    <!-- Social previews -->
-    <!-- <meta property="og:title" content="Kettle Bandit — Small-Batch Kettle Corn" />
-    <meta property="og:description" content="Bold flavors. Perfect crunch. Product listings for catering & wholesale." />
-    <meta property="og:image" content="images/cart_fair.JPG" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" /> -->
-
-    <!-- Favicon -->
-    <link rel="icon" href="images/logo.PNG" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kettle Bandit crafts bold, small-batch kettle corn for markets, parties, fundraising, and events.">
+  <title>Kettle Bandit | Small-Batch Kettle Corn</title>
+  <link rel="icon" href="assets/logo.PNG">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container nav">
-            <a href="#" class="brand">
-                <img class="logo" src="images/logo.PNG" alt="Kettle Bandit logo" />
-                <b>Kettle Bandit</b>
-            </a>
-            <nav class="nav-links" aria-label="Primary">
-                <a href="#products" aria-current="page">Products</a>
-                <a href="#details">Details</a>
-                <a href="#events">Find Us</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="nav-cta">
-                <a class="btn btn--ghost" href="#contact">Request Catering / Wholesale</a>
-                <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰</button>
-            </div>
-        </div>
-        <div class="drawer" id="drawer">
-            <a href="#products">Products</a>
-            <a href="#details">Details</a>
-            <a href="#events">Find Us</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </header>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Kettle Bandit home">
+      <img src="assets/logo.PNG" alt="Kettle Bandit">
+      <span>Kettle<br>Bandit</span>
+    </a>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-inner">
-            <div>
-                <span class="eyebrow">Small-Batch • Hand-Stirred • Bold Flavors</span>
-                <h1>Sweet Heat. <span style="color:var(--accent)">Perfect Crunch.</span> Bandit Approved.</h1>
-                <p>
-                    Kettle Bandit crafts small-batch kettle corn with a signature glaze that crackles. This site lists our flavors and sizes. For orders, catering, or wholesale, reach out below or find us at a market.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn" href="#products">Browse Products</a>
-                    <a class="btn btn--ghost" href="#contact">Contact Us</a>
-                </div>
-            </div>
-            <figure class="hero-media">
-                <!-- Hero image is critical: keep eager load (no loading="lazy") -->
-                <img src="images/cart_fair.JPG" alt="Kettle Bandit red cart at a fair with a ferris wheel at sunset" />
-            </figure>
+    <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+      <span></span><span></span><span></span><span class="sr-only">Open menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="#flavors">Flavors</a>
+      <a href="#story">Our process</a>
+      <a href="#find-us">Find us</a>
+      <a href="about.html">About us</a>
+    </nav>
+
+    <a class="nav-cta" href="#contact">Book the Bandit <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Small-batch · Hand-stirred</p>
+        <h1>Go ahead.<br>Steal the <em>show.</em></h1>
+        <p class="hero-lede">Sweet, salty, wildly crunchy kettle corn—popped fresh in bold flavors for markets, parties, and unforgettable events.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#flavors">Meet the flavors <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#contact">Catering & wholesale <span aria-hidden="true">↗</span></a>
         </div>
+        <div class="hero-proof"><span class="proof-mark">KB</span><p><strong>Popped fresh.</strong><br>Never ordinary.</p></div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/cart_fair.JPG" alt="Kettle Bandit red cart at a fair with a ferris wheel at sunset">
+        <div class="hero-stamp">BANDIT<br>APPROVED</div>
+        <p>El Paso, Texas · Markets & events</p>
+      </div>
     </section>
 
-    <!-- Products (listings only) -->
-    <section id="products" class="products">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <div class="eyebrow sub-eyebrow">Product Listings</div>
-                    <h2 class="section-title">Freshly Popped • Irresistibly Glazed</h2>
-                </div>
-                <p class="section-kicker">These are our core offerings. Tap “View details” for sizes, ingredients, and notes.</p>
-            </div>
-
-            <div class="grid reveal">
-                <!-- Spicy Kettle -->
-                <article class="card">
-                    <div class="card-media">
-                        <span class="badge">Spicy</span>
-                        <img src="images/kettle_hot.JPG" alt="Close up of spicy kettle corn with red glaze highlights" loading="lazy" decoding="async" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Spicy Kettle</h3>
-                        <div class="pillbar">
-                            <span class="pill">Spicy</span><span class="pill">Salty</span><span class="pill">Gluten-Free</span>
-                        </div>
-                        <p class="desc">Our signature kettle popcorn with a chili kick.</p>
-                        <div class="actions"><a href="#spicy">View details →</a></div>
-                    </div>
-                </article>
-
-                <!-- Pink Caramel -->
-                <article class="card">
-                    <div class="card-media">
-                        <span class="badge">Fan Favorite</span>
-                        <img src="images/pink_bg.JPG" alt="Pink-tinted kettle corn closeup" loading="lazy" decoding="async" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Pink Caramel</h3>
-                        <div class="pillbar">
-                            <span class="pill">Sweet</span><span class="pill">Colorful</span><span class="pill">Fair Favorite</span>
-                        </div>
-                        <p class="desc">Light caramel glaze with a radiant pink pop.</p>
-                        <div class="actions"><a href="#pink">View details →</a></div>
-                    </div>
-                </article>
-
-                <!-- Green Caramel -->
-                <article class="card">
-                    <div class="card-media">
-                        <span class="badge">Seasonal</span>
-                        <img src="images/green_bg.JPG" alt="Green apple kettle corn closeup" loading="lazy" decoding="async" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Green Caramel</h3>
-                        <div class="pillbar">
-                            <span class="pill">Sweet</span><span class="pill">Colorful</span><span class="pill">Fan Favorite</span>
-                        </div>
-                        <p class="desc">Caramel glaze with a vibrant green color.</p>
-                        <div class="actions"><a href="#green">View details →</a></div>
-                    </div>
-                </article>
-
-                <!-- Red & White Combo -->
-                <article class="card">
-                    <div class="card-media">
-                        <span class="badge">Mix</span>
-                        <img src="images/scoop_bg.JPG" alt="Scoop in a mix of red and white kettle corn" loading="lazy" decoding="async" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Red & White Combo</h3>
-                        <div class="pillbar">
-                            <span class="pill">Sweet</span><span class="pill">Shareable</span><span class="pill">Crowd-Pleaser</span>
-                        </div>
-                        <p class="desc">A festive blend of classic and cherry-vanilla kernels.</p>
-                        <div class="actions"><a href="#combo">View details →</a></div>
-                    </div>
-                </article>
-
-                <!-- Rainbow Mix -->
-                <article class="card">
-                    <div class="card-media">
-                        <span class="badge">Party</span>
-                        <img src="images/display_L.JPG" alt="Assorted colorful kettle corn bags lined up at the cart window" loading="lazy" decoding="async" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Rainbow Mix</h3>
-                        <div class="pillbar">
-                            <span class="pill">Colorful</span><span class="pill">Kids Love It</span><span class="pill">Assorted Flavors</span>
-                        </div>
-                        <p class="desc">A rotating assortment of flavored kernels.</p>
-                        <div class="actions"><a href="#rainbow">View details →</a></div>
-                    </div>
-                </article>
-
-                <!-- Fresh Lemonade (Add-On) -->
-                <article class="card">
-                    <div class="card-media">
-                        <span class="badge">Add-On</span>
-                        <img src="images/combo.JPG" alt="Iced lemonade cup next to a bag of kettle corn" loading="lazy" decoding="async" />
-                    </div>
-                    <div class="card-body">
-                        <h3>Fresh Lemonade (Add-On)</h3>
-                        <div class="pillbar">
-                            <span class="pill">House-Made</span><span class="pill">Perfect Pair</span>
-                        </div>
-                        <p class="desc">Ask about lemonade service for events and pop-ups.</p>
-                        <div class="actions"><a href="#lemonade">View details →</a></div>
-                    </div>
-                </article>
-            </div>
-        </div>
+    <section class="promise-strip" aria-label="What makes Kettle Bandit special">
+      <p><span>01</span> Popped in small batches</p>
+      <p><span>02</span> Bold, craveable flavors</p>
+      <p><span>03</span> Event-ready service</p>
+      <p><span>04</span> Community-minded</p>
     </section>
 
-    <!-- Details (anchors only; no commerce) -->
-    <section id="details">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <div class="eyebrow sub-eyebrow">Product Details</div>
-                    <h2 class="section-title">Sizes • Ingredients • Notes</h2>
-                </div>
-                <p class="section-kicker">For pricing, availability, catering, and wholesale, please contact us below.</p>
-            </div>
+    <section class="flavors section-pad" id="flavors">
+      <div class="section-intro">
+        <p class="section-label">The lineup</p>
+        <h2>Pick your<br><em>perfect crunch.</em></h2>
+        <p>From timeless kettle corn to candy-bright creations, there is a batch for every kind of craving.</p>
+      </div>
 
-            <div class="details">
-                <article id="spicy" class="detail reveal">
-                    <img src="images/kettle_hot.JPG" alt="Bag of spicy kettle corn with red glaze" loading="lazy" decoding="async" />
-                    <div class="copy">
-                        <h4>Spicy Kettle</h4>
-                        <div class="meta">Sizes: 8oz • 16oz • Party Tub</div>
-                        <p>Classic sweet–salt with a chili kick. Non-GMO corn, cane sugar, oil, salt, spices.</p>
-                        <p><strong>Great for:</strong> Game nights, festivals, heat lovers.</p>
-                    </div>
-                </article>
-
-                <article id="pink" class="detail reveal">
-                    <img src="images/pink.JPG" alt="Close-up of pink vanilla kettle corn" loading="lazy" decoding="async" />
-                    <div class="copy">
-                        <h4>Pink Caramel</h4>
-                        <div class="meta">Sizes: 8oz • 16oz</div>
-                        <p>Light caramel glaze with a pink hue — a fairground favorite that photographs beautifully.</p>
-                        <p><strong>Note:</strong> Dye-free option available on request.</p>
-                    </div>
-                </article>
-
-                <article id="green" class="detail reveal">
-                    <img src="images/green_bg.JPG" alt="Green apple kettle corn closeup" loading="lazy" decoding="async" />
-                    <div class="copy">
-                        <h4>Green Caramel</h4>
-                        <div class="meta">Sizes: 8oz • 16oz • Limited seasonal runs</div>
-                        <p>Caramel glaze with a vibrant green color. Makes an eye-catching display at markets.</p>
-                    </div>
-                </article>
-
-                <article id="combo" class="detail reveal">
-                    <img src="images/scoop_bg.JPG" alt="Scoop with red and white kettle corn mix" loading="lazy" decoding="async" />
-                    <div class="copy">
-                        <h4>Red & White Combo</h4>
-                        <div class="meta">Sizes: 16oz • Party Tub</div>
-                        <p>Mix of Classic and Cherry-Vanilla kernels for a festive look and layered flavor.</p>
-                    </div>
-                </article>
-
-                <article id="rainbow" class="detail reveal">
-                    <img src="images/display_L.JPG" alt="Row of colorful kettle corn bags in various flavors" loading="lazy" decoding="async" />
-                    <div class="copy">
-                        <h4>Rainbow Mix</h4>
-                        <div class="meta">Sizes: 8oz • 16oz • Bulk</div>
-                        <p>Assorted fruit-glazed kernels. Selection varies by event; ask about current lineup.</p>
-                    </div>
-                </article>
-
-                <article id="lemonade" class="detail reveal">
-                    <img src="images/combo.JPG" alt="Iced lemonade beside kettle corn bag" loading="lazy" decoding="async" />
-                    <div class="copy">
-                        <h4>Fresh Lemonade (Add-On)</h4>
-                        <div class="meta">Sizes: 16oz • 24oz (events only)</div>
-                        <p>House-made lemonade pairs perfectly with our sweet-salt crunch. Available for catering and markets.</p>
-                    </div>
-                </article>
-            </div>
+      <div class="flavor-showcase">
+        <figure class="showcase-main">
+          <img src="assets/display_L.JPG" alt="Colorful bags of Kettle Bandit kettle corn on display">
+          <figcaption>Made to turn heads before the first bite.</figcaption>
+        </figure>
+        <figure class="showcase-detail">
+          <img src="assets/pink_bg.JPG" alt="Close-up of bright pink kettle corn">
+        </figure>
+        <div class="flavor-list">
+          <p><span>01</span> Original</p>
+          <p><span>02</span> Caramel</p>
+          <p><span>03</span> Cheddar</p>
+          <p><span>04</span> Caramel-Cheddar <small>Chicago Style</small></p>
+          <p><span>05</span> Jalapeño Cheddar</p>
+          <p><span>06</span> Takis-Inspired <small>with real Takis</small></p>
+          <p><span>07</span> Blue Raspberry</p>
+          <p><span>08</span> Pink Cherry</p>
+          <p><span>09</span> Watermelon-Tajín</p>
+          <p><span>10</span> NERDS</p>
+          <p><span>11</span> Butter <small>Movie Popcorn</small></p>
+          <p><span>12</span> Mexican Cup of Fruit <small>with Tajín</small></p>
+          <p><span>13</span> Cinnamon Toast Crunch</p>
         </div>
+      </div>
+      <p class="flavor-note">Full flavor descriptions coming soon on our Flavors page.</p>
     </section>
 
-    <!-- Events / Find Us -->
-    <section id="events">
-        <div class="container">
-            <div class="section-head">
-                <div>
-                    <div class="eyebrow sub-eyebrow">Find Us IRL</div>
-                    <h2 class="section-title">Pop-Ups & Markets</h2>
-                </div>
-                <p class="section-kicker">Catch the Bandit near you — fresh batches every weekend.</p>
-            </div>
-
-            <div class="grid">
-                <div class="event reveal" style="grid-column:span 6">
-                    <div>
-                        <div class="where">Fountains at Farrah Farmer's Market</div>
-                        <div class="when">Fridays • 6–10pm</div>
-                    </div>
-                    <a class="btn btn--ghost" href="#">Map</a>
-                </div>
-                <div class="event reveal" style="grid-column:span 6">
-                    <div>
-                        <div class="where">Fox Plaza Market</div>
-                        <div class="when">Saturdays • 8am–1pm</div>
-                    </div>
-                    <a class="btn btn--ghost" href="#">Map</a>
-                </div>
-                <figure class="hero-media reveal" style="grid-column:span 12; min-height:320px">
-                    <img src="images/cart_pl.JPG" alt="Red kettle corn trailer with product bags displayed at the window" loading="lazy" decoding="async" />
-                </figure>
-            </div>
-        </div>
+    <section class="process" id="story">
+      <div class="process-gallery">
+        <figure class="process-image process-image-main"><img src="assets/kettle_hot.JPG" alt="Freshly prepared seasoned kettle corn"></figure>
+        <figure class="process-image process-image-small"><img src="assets/scoop_bg.JPG" alt="A scoop resting in colorful kettle corn"></figure>
+        <p>Fresh from<br>the kettle</p>
+      </div>
+      <div class="process-copy">
+        <p class="section-label">Made the old-fashioned way</p>
+        <h2>There’s no shortcut<br>to a <em>better batch.</em></h2>
+        <p class="process-lede">Every batch is hand-stirred, seasoned with intention, and served with the kind of energy that turns a snack stop into part of the event.</p>
+        <ol class="steps">
+          <li><span>01</span><div><strong>Fire up the kettle</strong><p>Quality kernels meet just the right heat.</p></div></li>
+          <li><span>02</span><div><strong>Stir by hand</strong><p>Small batches keep every kernel crisp and coated.</p></div></li>
+          <li><span>03</span><div><strong>Flavor boldly</strong><p>Sweet, savory, spicy, or brilliantly colorful.</p></div></li>
+        </ol>
+      </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footgrid">
-                <div>
-                    <a href="#" class="brand">
-                        <img class="logo" src="images/logo.PNG" alt="Kettle Bandit logo small" />
-                        <b>Kettle Bandit</b>
-                    </a>
-                    <p class="subtle">Small-batch kettle corn. Sweet, crackly, unforgettable.</p>
-                </div>
-                <div>
-                    <h4>Products</h4>
-                    <a href="#products">All Listings</a><br/>
-                    <a href="#details">Sizes & Ingredients</a><br/>
-                    <a href="#events">Find Us</a>
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <a href="mailto:hello@kettlebandit.com">hello@kettlebandit.com</a><br/>
-                    <span class="subtle">Mon–Fri, 9–5 CT</span>
-                </div>
-                <div>
-                    <h4>Catering & Wholesale</h4>
-                    <p class="subtle">Tell us your date, headcount, and flavors. We’ll get you a quote fast.</p>
-                    <a class="btn" href="mailto:hello@kettlebandit.com?subject=Catering%20%2F%20Wholesale%20Inquiry">Request Quote →</a>
-                </div>
-            </div>
-            <div class="legal">© <span id="year"></span> Kettle Bandit. All rights reserved.</div>
-        </div>
-    </footer>
+    <section class="community section-pad">
+      <div class="community-card">
+        <p class="section-label">More than a snack</p>
+        <h2>Every bite makes<br><em>a difference.</em></h2>
+        <p>Kettle Bandit is proud to give back through local fundraising and charity events—helping sports teams, schools, and community causes raise support one bold batch at a time.</p>
+        <a class="button button-dark" href="about.html">Read our story <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure><img src="assets/cart_pl.JPG" alt="Kettle Bandit trailer serving customers at an outdoor event"></figure>
+    </section>
 
-    <script>
-        // Mobile drawer (formatter-safe: no optional chaining)
-        var menuBtn = document.getElementById('menuBtn');
-        var drawer = document.getElementById('drawer');
-        if (menuBtn) {
-            menuBtn.addEventListener('click', function() {
-                if (drawer) drawer.classList.toggle('open');
-            });
-        }
+    <section class="find-us section-pad" id="find-us">
+      <div class="section-intro section-intro-row">
+        <div><p class="section-label">Catch the Bandit</p><h2>Fresh pops.<br><em>Good times.</em></h2></div>
+        <p>Find the red cart at a neighborhood market—or bring the whole experience to your next event.</p>
+      </div>
+      <div class="market-grid">
+        <article><span>Every Friday</span><h3>Fountains at Farrah<br>Farmer’s Market</h3><p>6–10 PM</p><a href="#contact">Confirm this week ↗</a></article>
+        <article><span>Every Saturday</span><h3>Fox Plaza<br>Market</h3><p>8 AM–1 PM</p><a href="#contact">Confirm this week ↗</a></article>
+        <article class="market-cta"><p>Planning something bigger?</p><h3>Bring the<br>Bandit to you.</h3><a class="button button-gold" href="#contact">Request a quote <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </section>
 
-        // Reveal on scroll
-        var io = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting) {
-                    e.target.classList.add('in');
-                    io.unobserve(e.target);
-                }
-            });
-        }, {
-            threshold: .12
-        });
-        document.querySelectorAll('.reveal').forEach(function(el) {
-            io.observe(el);
-        });
+    <section class="contact" id="contact">
+      <div><p class="section-label">Catering · Wholesale · Events</p><h2>Let’s make your<br>next event <em>pop.</em></h2></div>
+      <div class="contact-card">
+        <p>Tell us your date, headcount, and the flavors you have in mind. We’ll follow up with availability and a custom quote.</p>
+        <a class="button button-gold" href="mailto:hello@kettlebandit.com?subject=Kettle%20Bandit%20Event%20Inquiry">hello@kettlebandit.com <span aria-hidden="true">↗</span></a>
+        <small>Demo contact information — replace before launch</small>
+      </div>
+    </section>
+  </main>
 
-        // Year
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#top"><img src="assets/logo.PNG" alt=""><span>Kettle<br>Bandit</span></a>
+    <p>Small-batch kettle corn.<br>Sweet, crackly, unforgettable.</p>
+    <nav aria-label="Footer navigation"><a href="#flavors">Flavors</a><a href="#story">Our process</a><a href="#find-us">Find us</a><a href="about.html">About</a></nav>
+    <span>© <span data-year></span> Kettle Bandit</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
